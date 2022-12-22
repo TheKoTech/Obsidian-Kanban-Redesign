@@ -1,0 +1,298 @@
+/*
+This is a Obsidian.md Kanban plugin redesign CSS snippet.
+
+Author: Welnyr
+GitHub repo: 
+*/
+
+/* VARIABLES */
+
+.theme-light .kanban-plugin,
+.theme-light .kanban-plugin__drag-container {
+	--kanban-bg-lane-items: var(--color-base-00);
+}
+
+.theme-light .kanban-plugin {
+	--kangan-bg: #eee;
+	border-top: var(--color-base-30) 1px solid;
+}
+
+.theme-dark .kanban-plugin {
+	--kangan-bg: var(--background-primary);
+}
+
+.theme-dark .kanban-plugin,
+.theme-dark .kanban-plugin__drag-container {
+	--kanban-bg-lane-items: var(--color-base-25);
+}
+
+div.kanban-plugin,
+.kanban-plugin__drag-container {
+	--column-padding: 7px 9px 7px 15px;
+}
+
+.theme-dark .kanban-plugin__date-picker {
+	--kanban-highlight: rgb(255 255 255 / .05);
+}
+
+.theme-light .kanban-plugin__date-picker {
+	--kanban-highlight: rgb(0 0 0 / .05);
+}
+
+/* lAYOUT */
+
+.kanban-plugin__board {
+	background: var(--kangan-bg);
+}
+
+
+.kanban-plugin__lane {
+	row-gap: 5px;
+}
+
+/* LANES */
+
+.kanban-plugin__lane-wrapper {
+	margin-right: 20px;
+}
+
+.kanban-plugin__lane {
+	border: none;
+	background: none;
+}
+
+/* LANE GRIP */
+
+.kanban-plugin__lane .kanban-plugin__lane-grip {
+	overflow: hidden;
+	opacity: 0;
+	margin: 0;
+	width: 0;
+	border-radius: 5px;
+	cursor: hand;
+	transition: all .2s ease;
+}
+
+.kanban-plugin__lane-header-wrapper:hover .kanban-plugin__lane-grip {
+	width: max-content;
+	padding: 4px 6px 4px 4px;
+	margin-right: 5px;
+	opacity: 0.8;
+}
+
+.kanban-plugin__lane-grip:hover {
+	opacity: 1;
+	color: var(--icon-color-hover);
+}
+
+/* TITLE */
+
+.kanban-plugin__lane-header-wrapper {
+	background: var(--kanban-bg-lane-items);
+	padding: var(--column-padding);
+	border-radius: 5px;
+	border: none;
+	align-items: center;
+}
+
+.kanban-plugin__lane-header-wrapper:hover {
+	padding-left: 8px;
+}
+
+.kanban-plugin__lane-title :is(p, textarea) {
+	font-size: var(--h3-size);
+	padding-bottom: 0.1rem;
+}
+
+.kanban-plugin__lane-header-wrapper .kanban-plugin__icon {
+	width: 14px;
+	height: 14px;
+}
+
+/* LANE CONTENT */
+
+.kanban-plugin__item-button-wrapper {
+	padding: 0 !important;
+	border-top: none;
+	border-bottom: none !important;
+}
+
+/* NEW ITEM BUTTON */
+
+button.kanban-plugin__new-item-button {
+	font-size: 0em;
+	color: var(--color-base-50);
+	border: none;
+	box-shadow: none;
+	height: 32px;
+	cursor: pointer;
+}
+
+button.kanban-plugin__new-item-button:hover {
+	background: hsla(var(--interactive-accent-hsl), .75);
+}
+
+
+.kanban-plugin__new-item-button>span {
+	font-size: 1.5rem;
+	padding-bottom: 0.25rem;
+}
+
+.kanban-plugin__item-form {
+	padding: 0;
+	border: none;
+}
+
+.kanban-plugin__item-form>.kanban-plugin__item-input-wrapper {
+	border: none;
+	background: var(--kanban-bg-lane-items);
+	padding: var(--column-padding);
+
+}
+
+.kanban-plugin__item-form textarea {
+	background: none;
+}
+
+/* ITEMS */
+
+.kanban-plugin__lane-items.kanban-plugin__vertical {
+	padding: 0;
+	margin: 0;
+	order: 3;
+	row-gap: 6px;
+	border-radius: 5px;
+}
+
+.kanban-plugin__lane-items.kanban-plugin__vertical::-webkit-scrollbar {
+	display: none;
+}
+
+div.kanban-plugin__item-wrapper {
+	margin-top: 0;
+}
+
+.kanban-plugin__item {
+	border: none;
+}
+
+/* DRAG CONTAINER / ITEM */
+
+.kanban-plugin__item-title-wrapper,
+.kanban-plugin__item-title-wrapper .kanban-plugin__drag-container {
+	padding: var(--column-padding);
+	background: var(--kanban-bg-lane-items);
+}
+
+.kanban-plugin__drag-container>.kanban-plugin__item-wrapper .kanban-plugin__item {
+	box-shadow: 0 0 0 2px hsl(var(--interactive-accent-hsl)), var(--shadow-s);
+}
+
+.kanban-plugin .clickable-icon {
+	cursor: pointer;
+}
+
+/* ITEM METADATA */
+
+.kanban-plugin__item-content-wrapper .kanban-plugin__item-metadata {
+	width: fit-content;
+	padding-top: 0;
+}
+
+.kanban-plugin__item-content-wrapper .kanban-plugin__item-metadata>span:first-child {
+	margin-top: 8px !important;
+}
+
+.kanban-plugin__item-tags {
+	margin: 5px 0 2px 0;
+}
+
+.kanban-plugin__date-color-wrapper {
+	background: var(--kanban-bg-lane-items);
+	border-radius: 5px;
+}
+
+/* TIMESTAMPS */
+
+.kanban-plugin__item-metadata>.kanban-plugin__item-metadata-date-wrapper.has-background {
+	background-color: transparent;
+	color: var(--color-base-70);
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	column-gap: 0.3rem;
+}
+
+.kanban-plugin__item-metadata>.kanban-plugin__item-metadata-date-wrapper.has-background::before {
+	content: '⬤ ';
+	font-size: 0.6em;
+	padding-top: 0.1rem;
+	color: var(--date-pip-color);
+}
+
+.kanban-plugin__item-metadata-date-wrapper[style*='--date-background-color'] {
+	--date-pip-color: var(--date-background-color);
+}
+
+.kanban-plugin__item-metadata-date:hover {
+	color: var(--color-base-100) !important;
+}
+
+/* TAGS */
+
+.kanban-plugin__item-tags>.tag {
+	position: relative;
+	background: hsla(var(--interactive-accent-hsl), .1);
+	color: hsla(var(--interactive-accent-hsl), 0.8);
+}
+
+.kanban-plugin__item-tags>.tag::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.kanban-plugin__item-tags>.tag>span {
+	display: none;
+}
+
+/* DATE PICKER */
+
+
+.kanban-plugin__date-picker div.flatpickr-month {
+	justify-content: stretch;
+	height: auto;
+}
+
+.kanban-plugin__date-picker select.flatpickr-monthDropdown-months {
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
+.kanban-plugin__date-picker option.flatpickr-monthDropdown-month {
+	color: #242424;
+}
+
+.kanban-plugin__date-picker div.numInputWrapper {
+	width: 7ch;
+}
+
+.kanban-plugin__date-picker input.numInput:focus {
+	box-shadow: none;
+	background: var(--kanban-highlight);
+}
+
+.kanban-plugin__date-picker span.flatpickr-day {
+	margin: 1px;
+	max-width: calc(var(--cell-size) - 2px);
+	max-height: calc(var(--cell-size) - 2px);
+}
+
+.kanban-plugin__date-picker :is(.flatpickr-monthDropdown-months, .numInputWrapper, .flatpickr-day):hover,
+.kanban-plugin__date-picker .flatpickr-months>:is(.flatpickr-prev-month, .flatpickr-next-month):hover {
+	background: var(--kanban-highlight);
+}

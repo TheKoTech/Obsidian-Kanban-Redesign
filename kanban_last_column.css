@@ -1,0 +1,5 @@
+/* LAST COLUMN */
+
+.kanban-plugin__board>div> :nth-last-child(2) .kanban-plugin__item-metadata-date-wrapper {
+	--date-background-color: var(--color-base-70) !important;
+}
